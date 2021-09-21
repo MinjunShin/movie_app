@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 
 function Movie({ id, year, title, summary, poster, genres }) {
   return (
-    <Link
-      to={{
-        pathname: "/movie-detail",
-        state: { year, title, summary, poster, genres },
-      }}
-    >
-      <div className="movie">
+    <div className="movie">
+        <Link
+          to={{
+            pathname: `/movie/${id}`,
+            state: { year, title, summary, poster, genres },
+          }}
+        >
         <img src={poster} alt={title} />
         <div className="movie__data">
           <h3 className="movie__title">{title}</h3>
@@ -25,8 +25,8 @@ function Movie({ id, year, title, summary, poster, genres }) {
           </ul>
           <p className="movie__summary">{summary.slice(0, 180)}...</p>
         </div>
+       </Link>
       </div>
-    </Link>
   );
 }
 

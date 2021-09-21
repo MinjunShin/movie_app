@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import "./movie.css"
 
 function Movie ({id, year, title, summary, poster, genres}) {
   return <div className="movie">
     <img src={poster} alt={title}/>
-    <div className="movie_Data">
-      <h3 className="movie-title">{title}</h3>
-      <h5 className="movie_year">{year}</h5>
-      <p className="movie_summary">{summary}</p>
-      <ul className="movie_genres">{genres.map((el, index) => <li key={index} className="genres_li">{el}</li>)}</ul>
+    <div className="movie__data">
+      <h3 className="movie__title">{title}</h3>
+      <h5 className="movie__year">{year}</h5>
+      <ul className="movie__genres">{genres.map((el, index) => <li key={index} className="genres_li">{el}</li>)}</ul>
+      <p className="movie__summary">{summary.slice(0, 180)}...</p>
     </div>
   </div>
 }
